@@ -75,28 +75,28 @@ def run_detection(models):
     VT_BASE = r"D:\ACS\Final Project\ransomware dataset\vt_cuckoo_reports_final"
     configs=[
         # known families
-        {"folder":r"D:\ACS\Final Project\ransomware dataset\some ransomware cuckoo analysis report\darkside","family":"darkside","zeroday":False},
-        {"folder":r"D:\ACS\Final Project\ransomware dataset\some ransomware cuckoo analysis report\locky\locky","family":"locky","zeroday":False},
-        {"folder":r"D:\ACS\Final Project\ransomware dataset\some ransomware cuckoo analysis report\ryuk","family":"ryuk","zeroday":False},
-        {"folder":r"D:\ACS\Final Project\ransomware dataset\some ransomware cuckoo analysis report\reveton","family":"reveton","zeroday":False},
-        # zero-day families
-        {"folder":r"D:\ACS\Final Project\ransomware dataset\some ransomware cuckoo analysis report\wannacry\wannacry","family":"wannacry","zeroday":True},
-        {"folder":r"D:\ACS\Final Project\ransomware dataset\some ransomware cuckoo analysis report\sodinokibi\sodinokibi","family":"sodinokibi","zeroday":True},
-        {"folder":os.path.join(VT_BASE,"crowti"),"family":"crowti","zeroday":True},
-        {"folder":os.path.join(VT_BASE,"cryptodef"),"family":"cryptodef","zeroday":True},
-        {"folder":os.path.join(VT_BASE,"ctblocker"),"family":"ctblocker","zeroday":True},
+        {"folder":r"D:\ACS\Final Project\ransomware dataset\some ransomware cuckoo analysis report\darkside","family":"darkside","unseen":False},
+        {"folder":r"D:\ACS\Final Project\ransomware dataset\some ransomware cuckoo analysis report\locky\locky","family":"locky","unseen":False},
+        {"folder":r"D:\ACS\Final Project\ransomware dataset\some ransomware cuckoo analysis report\ryuk","family":"ryuk","unseen":False},
+        {"folder":r"D:\ACS\Final Project\ransomware dataset\some ransomware cuckoo analysis report\reveton","family":"reveton","unseen":False},
+        # unseen families
+        {"folder":r"D:\ACS\Final Project\ransomware dataset\some ransomware cuckoo analysis report\wannacry\wannacry","family":"wannacry","unseen":True},
+        {"folder":r"D:\ACS\Final Project\ransomware dataset\some ransomware cuckoo analysis report\sodinokibi\sodinokibi","family":"sodinokibi","unseen":True},
+        {"folder":os.path.join(VT_BASE,"crowti"),"family":"crowti","unseen":True},
+        {"folder":os.path.join(VT_BASE,"cryptodef"),"family":"cryptodef","unseen":True},
+        {"folder":os.path.join(VT_BASE,"ctblocker"),"family":"ctblocker","unseen":True},
     ]
     all_results=[];send_event({"type":"start"});time.sleep(0.5)
     for cfg in configs:
         if not os.path.exists(cfg["folder"]): continue
         files=[f for f in os.listdir(cfg["folder"]) if f.endswith(".json")][:3]
         if not files: continue
-        send_event({"type":"family_start","family":cfg["family"],"zeroday":cfg["zeroday"]});time.sleep(0.3)
+        send_event({"type":"family_start","family":cfg["family"],"unseen":cfg["unseen"]});time.sleep(0.3)
         for fname in files:
             calls=extract_api_calls(os.path.join(cfg["folder"],fname))
             total=len(calls)
             if total<10: continue
-            send_event({"type":"sample_start","family":cfg["family"],"zeroday":cfg["zeroday"],"filename":fname[:50],"total_calls":total});time.sleep(0.4)
+            send_event({"type":"sample_start","family":cfg["family"],"unseen":cfg["unseen"],"filename":fname[:50],"total_calls":total});time.sleep(0.4)
             window_results=[]
             for ws in WINDOW_SIZES:
                 label=int(ws*100);n_calls=max(1,int(total*ws))
@@ -110,7 +110,7 @@ def run_detection(models):
                 correct=prediction==1
                 send_event({"type":"window_result","family":cfg["family"],"filename":fname[:50],"window":label,"n_calls":n_calls,"verdict":verdict,"confidence":round(confidence*100,1),"correct":correct})
                 time.sleep(0.6);window_results.append({"window":label,"verdict":verdict,"confidence":round(confidence*100,1),"correct":correct})
-            all_results.append({"family":cfg["family"],"zeroday":cfg["zeroday"],"filename":fname,"total_calls":total,"windows":window_results})
+            all_results.append({"family":cfg["family"],"unseen":cfg["unseen"],"filename":fname,"total_calls":total,"windows":window_results})
     send_event({"type":"complete","results":all_results})
     with open(os.path.join(RESULTS_DIR,"dashboard_results.json"),"w") as f: json.dump(all_results,f,indent=2)
 
@@ -182,7 +182,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
   <div class="summary-row">
     <div class="metric"><div class="metric-label">Samples processed</div><div class="metric-val" id="m-processed">0</div><div class="metric-sub">live count</div></div>
     <div class="metric"><div class="metric-label">Detected correctly</div><div class="metric-val" id="m-correct" style="color:#16a34a">0</div><div class="metric-sub" id="m-correct-sub">all windows correct</div></div>
-    <div class="metric"><div class="metric-label">Zero-day tested</div><div class="metric-val" id="m-zeroday" style="color:#1d4ed8">0</div><div class="metric-sub">5 unseen families</div></div>
+    <div class="metric"><div class="metric-label">Unseen tested</div><div class="metric-val" id="m-unseen" style="color:#1d4ed8">0</div><div class="metric-sub">5 unseen families</div></div>
     <div class="metric"><div class="metric-label">Current family</div><div class="metric-val" id="m-family" style="font-size:18px;color:#d97706">—</div><div class="metric-sub" id="m-zd-label"></div></div>
   </div>
   <div class="window-row">
@@ -198,18 +198,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
     <span>🔴 Ransomware detected (correct)</span>
     <span>🟢 Benign detected (correct)</span>
     <span>⚠️ Wrong prediction</span>
-    <span style="background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:500">ZERO-DAY</span> = family not seen during training
+    <span style="background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:500">UNSEEN</span> = family not seen during training
   </div>
 </div>
 <script>
-const state={processed:0,windowCorrect:{25:0,50:0,75:0,100:0},windowTotal:{25:0,50:0,75:0,100:0},allResults:[],zdCount:0};
+const state={processed:0,windowCorrect:{25:0,50:0,75:0,100:0},windowTotal:{25:0,50:0,75:0,100:0},allResults:[],unseenCount:0};
 const es=new EventSource('/stream');
 es.onmessage=e=>{
   const d=JSON.parse(e.data);
   if(d.type==='family_start'){
     document.getElementById('m-family').textContent=d.family;
-    document.getElementById('m-zd-label').textContent=d.zeroday?'⚡ Zero-day family':'Known family';
-    if(d.zeroday){state.zdCount++;document.getElementById('m-zeroday').textContent=state.zdCount;}
+    document.getElementById('m-zd-label').textContent=d.unseen?'⚡ Unseen family':'Known family';
+    if(d.unseen){state.unseenCount++;document.getElementById('m-unseen').textContent=state.unseenCount;}
   }
   if(d.type==='sample_start'){
     state.processed++;
@@ -219,7 +219,7 @@ es.onmessage=e=>{
     card.className='sample-card';card.id='card-'+safeId;
     card.innerHTML=`<div class="sample-head">
       <span class="family-tag tag-${d.family}">${d.family}</span>
-      ${d.zeroday?'<span class="zd-tag">ZERO-DAY</span>':''}
+      ${d.unseen?'<span class="zd-tag">UNSEEN</span>':''}
       <span class="fname">${d.filename}</span>
       <span class="calls-count">${d.total_calls.toLocaleString()} API calls</span>
     </div><div class="windows-grid">${[25,50,75,100].map(p=>`
@@ -261,13 +261,13 @@ es.onmessage=e=>{
     document.getElementById('status-pill').textContent='✓ Complete';
     document.getElementById('pulse-dot').style.display='none';
     const allCorrect=d.results.filter(s=>s.windows.every(w=>w.correct)).length;
-    const knownCorrect=d.results.filter(s=>!s.zeroday&&s.windows.every(w=>w.correct)).length;
-    const knownTotal=d.results.filter(s=>!s.zeroday).length;
-    const zdCorrect=d.results.filter(s=>s.zeroday&&s.windows.every(w=>w.correct)).length;
-    const zdTotal=d.results.filter(s=>s.zeroday).length;
+    const knownCorrect=d.results.filter(s=>!s.unseen&&s.windows.every(w=>w.correct)).length;
+    const knownTotal=d.results.filter(s=>!s.unseen).length;
+    const zdCorrect=d.results.filter(s=>s.unseen&&s.windows.every(w=>w.correct)).length;
+    const zdTotal=d.results.filter(s=>s.unseen).length;
     document.getElementById('m-correct').textContent=allCorrect+'/'+d.results.length;
-    document.getElementById('m-correct-sub').textContent='Known: '+knownCorrect+'/'+knownTotal+' | Zero-day: '+zdCorrect+'/'+zdTotal;
-    document.getElementById('m-zeroday').textContent=zdTotal;
+    document.getElementById('m-correct-sub').textContent='Known: '+knownCorrect+'/'+knownTotal+' | Unseen: '+zdCorrect+'/'+zdTotal;
+    document.getElementById('m-unseen').textContent=zdTotal;
     es.close();
   }
 };
