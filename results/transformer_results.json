@@ -1,0 +1,74 @@
+[
+  {
+    "window": 25,
+    "best_epoch": 14,
+    "accuracy": 97.52,
+    "f1_macro": 96.19,
+    "precision": 96.19,
+    "recall": 96.19,
+    "confusion_matrix": [
+      [
+        31,
+        2
+      ],
+      [
+        2,
+        126
+      ]
+    ]
+  },
+  {
+    "window": 50,
+    "best_epoch": 22,
+    "accuracy": 95.65,
+    "f1_macro": 93.25,
+    "precision": 93.76,
+    "recall": 92.77,
+    "confusion_matrix": [
+      [
+        29,
+        4
+      ],
+      [
+        3,
+        125
+      ]
+    ]
+  },
+  {
+    "window": 75,
+    "best_epoch": 20,
+    "accuracy": 95.03,
+    "f1_macro": 92.7,
+    "precision": 91.09,
+    "recall": 94.63,
+    "confusion_matrix": [
+      [
+        31,
+        2
+      ],
+      [
+        6,
+        122
+      ]
+    ]
+  },
+  {
+    "window": 100,
+    "best_epoch": 16,
+    "accuracy": 96.89,
+    "f1_macro": 95.39,
+    "precision": 94.04,
+    "recall": 96.92,
+    "confusion_matrix": [
+      [
+        32,
+        1
+      ],
+      [
+        4,
+        124
+      ]
+    ]
+  }
+]
