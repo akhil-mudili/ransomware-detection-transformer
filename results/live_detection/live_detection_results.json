@@ -1,0 +1,492 @@
+[
+  {
+    "file": "029c5d48e425206e2ae84a63d62bdbc80362702913b38618a423c541c8a0ed40.json",
+    "family": "darkside",
+    "true_label": "RANSOMWARE",
+    "window_results": [
+      {
+        "window": 25,
+        "n_calls_used": 83,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.77,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 50,
+        "n_calls_used": 166,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.88,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 75,
+        "n_calls_used": 249,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.76,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 100,
+        "n_calls_used": 333,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.85,
+        "correct": "CORRECT"
+      }
+    ]
+  },
+  {
+    "file": "0a0c225f0e5ee941a79f2b7701f1285e4975a2859eb4d025d96d9e366e81abb9.json",
+    "family": "darkside",
+    "true_label": "RANSOMWARE",
+    "window_results": [
+      {
+        "window": 25,
+        "n_calls_used": 82,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.77,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 50,
+        "n_calls_used": 165,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.88,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 75,
+        "n_calls_used": 248,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.77,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 100,
+        "n_calls_used": 331,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.85,
+        "correct": "CORRECT"
+      }
+    ]
+  },
+  {
+    "file": "12ee27f56ec8a2a3eb2fe69179be3f7a7193ce2b92963ad33356ed299f7ed975.json",
+    "family": "darkside",
+    "true_label": "RANSOMWARE",
+    "window_results": [
+      {
+        "window": 25,
+        "n_calls_used": 30,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.76,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 50,
+        "n_calls_used": 61,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.89,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 75,
+        "n_calls_used": 92,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.83,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 100,
+        "n_calls_used": 123,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.85,
+        "correct": "CORRECT"
+      }
+    ]
+  },
+  {
+    "file": "00b79b9b29e5514f292cf0ec81a7e24d5fd6acf9caa4acae20b47822e4ee7104.json",
+    "family": "locky/locky",
+    "true_label": "RANSOMWARE",
+    "window_results": [
+      {
+        "window": 25,
+        "n_calls_used": 170,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.77,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 50,
+        "n_calls_used": 340,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.88,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 75,
+        "n_calls_used": 510,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.83,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 100,
+        "n_calls_used": 680,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.85,
+        "correct": "CORRECT"
+      }
+    ]
+  },
+  {
+    "file": "0217465894922c0cadb816e323e515180626598ef3f0a59e912119fe263cca83.json",
+    "family": "locky/locky",
+    "true_label": "RANSOMWARE",
+    "window_results": [
+      {
+        "window": 25,
+        "n_calls_used": 7341,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.49,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 50,
+        "n_calls_used": 14683,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.87,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 75,
+        "n_calls_used": 22025,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.83,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 100,
+        "n_calls_used": 29367,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.83,
+        "correct": "CORRECT"
+      }
+    ]
+  },
+  {
+    "file": "02cdac1d4c67c3b3b02bb969ac19646d9857d5d511109f12628ba7aba69ce6ca.json",
+    "family": "locky/locky",
+    "true_label": "RANSOMWARE",
+    "window_results": [
+      {
+        "window": 25,
+        "n_calls_used": 182,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.77,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 50,
+        "n_calls_used": 365,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.88,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 75,
+        "n_calls_used": 547,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.83,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 100,
+        "n_calls_used": 730,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.85,
+        "correct": "CORRECT"
+      }
+    ]
+  },
+  {
+    "file": "04c66a270bc22ad7836b7293445f4e1a53c4b3108c46822b1ddaff899828ff92.json",
+    "family": "reveton",
+    "true_label": "RANSOMWARE",
+    "window_results": [
+      {
+        "window": 25,
+        "n_calls_used": 430,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.76,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 50,
+        "n_calls_used": 860,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.88,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 75,
+        "n_calls_used": 1290,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.83,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 100,
+        "n_calls_used": 1720,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.86,
+        "correct": "CORRECT"
+      }
+    ]
+  },
+  {
+    "file": "080a30b215c153a97b75cef0c7a8130c2948a0d5c335edf69468646ded83119c.json",
+    "family": "reveton",
+    "true_label": "RANSOMWARE",
+    "window_results": [
+      {
+        "window": 25,
+        "n_calls_used": 6020,
+        "prediction": "RANSOMWARE",
+        "confidence": 96.67,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 50,
+        "n_calls_used": 12041,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.87,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 75,
+        "n_calls_used": 18062,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.82,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 100,
+        "n_calls_used": 24083,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.58,
+        "correct": "CORRECT"
+      }
+    ]
+  },
+  {
+    "file": "09930cb23ed47d851a592db609c60ee9f335fbfc6d3eab9f0b04b1a913640c80.json",
+    "family": "reveton",
+    "true_label": "RANSOMWARE",
+    "window_results": [
+      {
+        "window": 25,
+        "n_calls_used": 421,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.76,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 50,
+        "n_calls_used": 842,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.88,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 75,
+        "n_calls_used": 1263,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.83,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 100,
+        "n_calls_used": 1685,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.86,
+        "correct": "CORRECT"
+      }
+    ]
+  },
+  {
+    "file": "05e06709523fd798da963c2c24254de0fcca6c57e1052996798ecc74ff43b41f.json",
+    "family": "ryuk",
+    "true_label": "RANSOMWARE",
+    "window_results": [
+      {
+        "window": 25,
+        "n_calls_used": 16,
+        "prediction": "RANSOMWARE",
+        "confidence": 52.93,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 50,
+        "n_calls_used": 33,
+        "prediction": "RANSOMWARE",
+        "confidence": 96.92,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 75,
+        "n_calls_used": 50,
+        "prediction": "RANSOMWARE",
+        "confidence": 90.41,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 100,
+        "n_calls_used": 67,
+        "prediction": "RANSOMWARE",
+        "confidence": 97.55,
+        "correct": "CORRECT"
+      }
+    ]
+  },
+  {
+    "file": "0cf36731f5b8651d53fc651607c3fccac24b631c08dca4493d8e07d2fbff1db3.json",
+    "family": "ryuk",
+    "true_label": "RANSOMWARE",
+    "window_results": [
+      {
+        "window": 25,
+        "n_calls_used": 2018,
+        "prediction": "RANSOMWARE",
+        "confidence": 76.43,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 50,
+        "n_calls_used": 4036,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.81,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 75,
+        "n_calls_used": 6054,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 100,
+        "n_calls_used": 8073,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.79,
+        "correct": "CORRECT"
+      }
+    ]
+  },
+  {
+    "file": "180f82bbedb03dc29328e32e054069870a1e65078b78b2120a84c96aaed7d843.json",
+    "family": "ryuk",
+    "true_label": "RANSOMWARE",
+    "window_results": [
+      {
+        "window": 25,
+        "n_calls_used": 5649,
+        "prediction": "RANSOMWARE",
+        "confidence": 98.22,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 50,
+        "n_calls_used": 11299,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.85,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 75,
+        "n_calls_used": 16948,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.83,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 100,
+        "n_calls_used": 22598,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.84,
+        "correct": "CORRECT"
+      }
+    ]
+  },
+  {
+    "file": "1898f2cae1e3824cb0f7fd5368171a33aba179e63501e480b4da9ea05ebf0423.json",
+    "family": "virlock",
+    "true_label": "RANSOMWARE",
+    "window_results": [
+      {
+        "window": 25,
+        "n_calls_used": 13325,
+        "prediction": "BENIGN",
+        "confidence": 95.26,
+        "correct": "WRONG"
+      },
+      {
+        "window": 50,
+        "n_calls_used": 26650,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.81,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 75,
+        "n_calls_used": 39975,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.76,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 100,
+        "n_calls_used": 53301,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.2,
+        "correct": "CORRECT"
+      }
+    ]
+  },
+  {
+    "file": "1d797f145cd0e562988e0dd44b94e78a11a66bb7629765b1cb0d4b4d9c4df8ca.json",
+    "family": "virlock",
+    "true_label": "RANSOMWARE",
+    "window_results": [
+      {
+        "window": 25,
+        "n_calls_used": 6088,
+        "prediction": "BENIGN",
+        "confidence": 93.34,
+        "correct": "WRONG"
+      },
+      {
+        "window": 50,
+        "n_calls_used": 12177,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.74,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 75,
+        "n_calls_used": 18266,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.74,
+        "correct": "CORRECT"
+      },
+      {
+        "window": 100,
+        "n_calls_used": 24355,
+        "prediction": "RANSOMWARE",
+        "confidence": 99.35,
+        "correct": "CORRECT"
+      }
+    ]
+  }
+]

@@ -1,0 +1,866 @@
+[
+  {
+    "family": "darkside",
+    "zeroday": false,
+    "filename": "029c5d48e425206e2ae84a63d62bdbc80362702913b38618a423c541c8a0ed40.json",
+    "total_calls": 333,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
+      },
+      {
+        "window": 75,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 100,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      }
+    ]
+  },
+  {
+    "family": "darkside",
+    "zeroday": false,
+    "filename": "0a0c225f0e5ee941a79f2b7701f1285e4975a2859eb4d025d96d9e366e81abb9.json",
+    "total_calls": 331,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
+      },
+      {
+        "window": 75,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 100,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      }
+    ]
+  },
+  {
+    "family": "darkside",
+    "zeroday": false,
+    "filename": "12ee27f56ec8a2a3eb2fe69179be3f7a7193ce2b92963ad33356ed299f7ed975.json",
+    "total_calls": 123,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
+      },
+      {
+        "window": 75,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 100,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      }
+    ]
+  },
+  {
+    "family": "locky",
+    "zeroday": false,
+    "filename": "00b79b9b29e5514f292cf0ec81a7e24d5fd6acf9caa4acae20b47822e4ee7104.json",
+    "total_calls": 680,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
+      },
+      {
+        "window": 75,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 100,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
+      }
+    ]
+  },
+  {
+    "family": "locky",
+    "zeroday": false,
+    "filename": "0217465894922c0cadb816e323e515180626598ef3f0a59e912119fe263cca83.json",
+    "total_calls": 29367,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.5,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
+      },
+      {
+        "window": 75,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 100,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      }
+    ]
+  },
+  {
+    "family": "locky",
+    "zeroday": false,
+    "filename": "02cdac1d4c67c3b3b02bb969ac19646d9857d5d511109f12628ba7aba69ce6ca.json",
+    "total_calls": 730,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
+      },
+      {
+        "window": 75,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 100,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      }
+    ]
+  },
+  {
+    "family": "ryuk",
+    "zeroday": false,
+    "filename": "05e06709523fd798da963c2c24254de0fcca6c57e1052996798ecc74ff43b41f.json",
+    "total_calls": 67,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 52.9,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "RANSOMWARE",
+        "confidence": 96.9,
+        "correct": true
+      },
+      {
+        "window": 75,
+        "verdict": "RANSOMWARE",
+        "confidence": 90.4,
+        "correct": true
+      },
+      {
+        "window": 100,
+        "verdict": "RANSOMWARE",
+        "confidence": 97.6,
+        "correct": true
+      }
+    ]
+  },
+  {
+    "family": "ryuk",
+    "zeroday": false,
+    "filename": "0cf36731f5b8651d53fc651607c3fccac24b631c08dca4493d8e07d2fbff1db3.json",
+    "total_calls": 8073,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 76.4,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 75,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 100,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      }
+    ]
+  },
+  {
+    "family": "ryuk",
+    "zeroday": false,
+    "filename": "180f82bbedb03dc29328e32e054069870a1e65078b78b2120a84c96aaed7d843.json",
+    "total_calls": 22598,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 98.2,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
+      },
+      {
+        "window": 75,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 100,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      }
+    ]
+  },
+  {
+    "family": "reveton",
+    "zeroday": false,
+    "filename": "04c66a270bc22ad7836b7293445f4e1a53c4b3108c46822b1ddaff899828ff92.json",
+    "total_calls": 1720,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
+      },
+      {
+        "window": 75,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 100,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
+      }
+    ]
+  },
+  {
+    "family": "reveton",
+    "zeroday": false,
+    "filename": "080a30b215c153a97b75cef0c7a8130c2948a0d5c335edf69468646ded83119c.json",
+    "total_calls": 24083,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 96.7,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
+      },
+      {
+        "window": 75,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 100,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.6,
+        "correct": true
+      }
+    ]
+  },
+  {
+    "family": "reveton",
+    "zeroday": false,
+    "filename": "09930cb23ed47d851a592db609c60ee9f335fbfc6d3eab9f0b04b1a913640c80.json",
+    "total_calls": 1685,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
+      },
+      {
+        "window": 75,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 100,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
+      }
+    ]
+  },
+  {
+    "family": "wannacry",
+    "zeroday": true,
+    "filename": "065e46dbdf5251bf334f6a383fbaef19be8da04d2b5692f1aba6f9b533b40974.json",
+    "total_calls": 355,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
+      },
+      {
+        "window": 75,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      },
+      {
+        "window": 100,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
+      }
+    ]
+  },
+  {
+    "family": "wannacry",
+    "zeroday": true,
+    "filename": "07c44729e2c570b37db695323249474831f5861d45318bf49ccf5d2f5c8ea1cd.json",
+    "total_calls": 63,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.4,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "RANSOMWARE",
+        "confidence": 96.9,
+        "correct": true
+      },
+      {
+        "window": 75,
+        "verdict": "BENIGN",
+        "confidence": 76.3,
+        "correct": false
+      },
+      {
+        "window": 100,
+        "verdict": "BENIGN",
+        "confidence": 61.0,
+        "correct": false
+      }
+    ]
+  },
+  {
+    "family": "wannacry",
+    "zeroday": true,
+    "filename": "09a46b3e1be080745a6d8d88d6b5bd351b1c7586ae0dc94d0c238ee36421cafa.json",
+    "total_calls": 75288,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "BENIGN",
+        "confidence": 98.4,
+        "correct": false
+      },
+      {
+        "window": 50,
+        "verdict": "RANSOMWARE",
+        "confidence": 65.7,
+        "correct": true
+      },
+      {
+        "window": 75,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.3,
+        "correct": true
+      },
+      {
+        "window": 100,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.3,
+        "correct": true
+      }
+    ]
+  },
+  {
+    "family": "sodinokibi",
+    "zeroday": true,
+    "filename": "016b9f1c52a6eff5ec77deb7efbf2265a9d4fe0508510e6bf241098b29dbaa25.json",
+    "total_calls": 30434,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.7,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
+      },
+      {
+        "window": 75,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.7,
+        "correct": true
+      },
+      {
+        "window": 100,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.7,
+        "correct": true
+      }
+    ]
+  },
+  {
+    "family": "sodinokibi",
+    "zeroday": true,
+    "filename": "02a526d298e49da19220022a71e31434183e520c2845c6f3eb23169602f0ed63.json",
+    "total_calls": 155,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "BENIGN",
+        "confidence": 98.8,
+        "correct": false
+      },
+      {
+        "window": 50,
+        "verdict": "BENIGN",
+        "confidence": 95.7,
+        "correct": false
+      },
+      {
+        "window": 75,
+        "verdict": "BENIGN",
+        "confidence": 98.8,
+        "correct": false
+      },
+      {
+        "window": 100,
+        "verdict": "BENIGN",
+        "confidence": 98.8,
+        "correct": false
+      }
+    ]
+  },
+  {
+    "family": "sodinokibi",
+    "zeroday": true,
+    "filename": "04419b76566142902680b2c44b216905b44a5743502530066e408bac72d20864.json",
+    "total_calls": 61522,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.7,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
+      },
+      {
+        "window": 75,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.7,
+        "correct": true
+      },
+      {
+        "window": 100,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.7,
+        "correct": true
+      }
+    ]
+  },
+  {
+    "family": "crowti",
+    "zeroday": true,
+    "filename": "0152277e6e876a3910fa194fa44843934369e2f065e48cd12167dd62562ce652.json",
+    "total_calls": 43,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 76.4,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "BENIGN",
+        "confidence": 97.2,
+        "correct": false
+      },
+      {
+        "window": 75,
+        "verdict": "BENIGN",
+        "confidence": 86.9,
+        "correct": false
+      },
+      {
+        "window": 100,
+        "verdict": "BENIGN",
+        "confidence": 66.1,
+        "correct": false
+      }
+    ]
+  },
+  {
+    "family": "crowti",
+    "zeroday": true,
+    "filename": "015267b05f678898baa84b3248c251fd43720b461c879846be248abecac4ca9b.json",
+    "total_calls": 41,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 79.0,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "BENIGN",
+        "confidence": 97.6,
+        "correct": false
+      },
+      {
+        "window": 75,
+        "verdict": "BENIGN",
+        "confidence": 87.1,
+        "correct": false
+      },
+      {
+        "window": 100,
+        "verdict": "BENIGN",
+        "confidence": 80.1,
+        "correct": false
+      }
+    ]
+  },
+  {
+    "family": "crowti",
+    "zeroday": true,
+    "filename": "01c98ca7ca87a857659881061fea840c1f6ea52f09b02da707e1415a53687f8a.json",
+    "total_calls": 45,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 88.7,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "BENIGN",
+        "confidence": 97.7,
+        "correct": false
+      },
+      {
+        "window": 75,
+        "verdict": "BENIGN",
+        "confidence": 86.8,
+        "correct": false
+      },
+      {
+        "window": 100,
+        "verdict": "BENIGN",
+        "confidence": 55.7,
+        "correct": false
+      }
+    ]
+  },
+  {
+    "family": "cryptodef",
+    "zeroday": true,
+    "filename": "01b1f200a1b49eff6999aea0b67f62108b45db2532b9cbdc916444b7aaead477.json",
+    "total_calls": 39,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.7,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "BENIGN",
+        "confidence": 95.2,
+        "correct": false
+      },
+      {
+        "window": 75,
+        "verdict": "BENIGN",
+        "confidence": 83.0,
+        "correct": false
+      },
+      {
+        "window": 100,
+        "verdict": "BENIGN",
+        "confidence": 59.1,
+        "correct": false
+      }
+    ]
+  },
+  {
+    "family": "cryptodef",
+    "zeroday": true,
+    "filename": "0222fcf49a6c2d7aaec2bbd54d32a9ca9168c0f3ee5ca0ee1ba1489a56b46bd6.json",
+    "total_calls": 41,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 79.0,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "BENIGN",
+        "confidence": 97.6,
+        "correct": false
+      },
+      {
+        "window": 75,
+        "verdict": "BENIGN",
+        "confidence": 87.1,
+        "correct": false
+      },
+      {
+        "window": 100,
+        "verdict": "BENIGN",
+        "confidence": 80.1,
+        "correct": false
+      }
+    ]
+  },
+  {
+    "family": "cryptodef",
+    "zeroday": true,
+    "filename": "02ef81bb120472b87d413516a8ccc8202d9e04d686ebdedbfcd963b6a9673109.json",
+    "total_calls": 41,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 79.0,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "BENIGN",
+        "confidence": 97.6,
+        "correct": false
+      },
+      {
+        "window": 75,
+        "verdict": "BENIGN",
+        "confidence": 87.1,
+        "correct": false
+      },
+      {
+        "window": 100,
+        "verdict": "BENIGN",
+        "confidence": 80.1,
+        "correct": false
+      }
+    ]
+  },
+  {
+    "family": "ctblocker",
+    "zeroday": true,
+    "filename": "0271d95f3d05175b71846709afa4194f99dfb886afc7883c61a27bc1f5555d3f.json",
+    "total_calls": 792,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.6,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "RANSOMWARE",
+        "confidence": 87.5,
+        "correct": true
+      },
+      {
+        "window": 75,
+        "verdict": "BENIGN",
+        "confidence": 96.6,
+        "correct": false
+      },
+      {
+        "window": 100,
+        "verdict": "BENIGN",
+        "confidence": 69.7,
+        "correct": false
+      }
+    ]
+  },
+  {
+    "family": "ctblocker",
+    "zeroday": true,
+    "filename": "0f9d3cfa0af4bc4c79ae1df6d243df77386a2ca9be0f47fba266fd6a7d9ad73a.json",
+    "total_calls": 781,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.6,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "RANSOMWARE",
+        "confidence": 88.1,
+        "correct": true
+      },
+      {
+        "window": 75,
+        "verdict": "BENIGN",
+        "confidence": 96.4,
+        "correct": false
+      },
+      {
+        "window": 100,
+        "verdict": "BENIGN",
+        "confidence": 62.1,
+        "correct": false
+      }
+    ]
+  },
+  {
+    "family": "ctblocker",
+    "zeroday": true,
+    "filename": "11b1d20999dbaa5b80cfd5537389d2633d1bb9fe1ff482d04d99e0e9b640eea9.json",
+    "total_calls": 2698,
+    "windows": [
+      {
+        "window": 25,
+        "verdict": "RANSOMWARE",
+        "confidence": 92.7,
+        "correct": true
+      },
+      {
+        "window": 50,
+        "verdict": "RANSOMWARE",
+        "confidence": 99.3,
+        "correct": true
+      },
+      {
+        "window": 75,
+        "verdict": "BENIGN",
+        "confidence": 84.9,
+        "correct": false
+      },
+      {
+        "window": 100,
+        "verdict": "RANSOMWARE",
+        "confidence": 83.7,
+        "correct": true
+      }
+    ]
+  }
+]
