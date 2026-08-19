@@ -1,73 +1,77 @@
 [
   {
     "window": 25,
-    "best_epoch": 14,
-    "accuracy": 97.52,
-    "f1_macro": 96.19,
-    "precision": 96.19,
-    "recall": 96.19,
+    "best_epoch": 43,
+    "decision_threshold": 0.54,
+    "accuracy": 96.27,
+    "f1_macro": 96.27,
+    "precision": 96.3,
+    "recall": 96.25,
     "confusion_matrix": [
       [
-        31,
-        2
+        213,
+        6
       ],
       [
-        2,
-        126
+        10,
+        200
       ]
     ]
   },
   {
     "window": 50,
-    "best_epoch": 22,
-    "accuracy": 95.65,
-    "f1_macro": 93.25,
-    "precision": 93.76,
-    "recall": 92.77,
+    "best_epoch": 30,
+    "decision_threshold": 0.5,
+    "accuracy": 94.41,
+    "f1_macro": 94.4,
+    "precision": 94.46,
+    "recall": 94.37,
     "confusion_matrix": [
       [
-        29,
-        4
+        210,
+        9
       ],
       [
-        3,
-        125
+        15,
+        195
       ]
     ]
   },
   {
     "window": 75,
-    "best_epoch": 20,
-    "accuracy": 95.03,
-    "f1_macro": 92.7,
-    "precision": 91.09,
-    "recall": 94.63,
+    "best_epoch": 21,
+    "decision_threshold": 0.5,
+    "accuracy": 95.57,
+    "f1_macro": 95.57,
+    "precision": 95.57,
+    "recall": 95.57,
     "confusion_matrix": [
       [
-        31,
-        2
+        209,
+        10
       ],
       [
-        6,
-        122
+        9,
+        201
       ]
     ]
   },
   {
     "window": 100,
-    "best_epoch": 16,
-    "accuracy": 96.89,
-    "f1_macro": 95.39,
-    "precision": 94.04,
-    "recall": 96.92,
+    "best_epoch": 19,
+    "decision_threshold": 0.42,
+    "accuracy": 93.94,
+    "f1_macro": 93.94,
+    "precision": 93.95,
+    "recall": 93.97,
     "confusion_matrix": [
       [
-        32,
-        1
+        203,
+        16
       ],
       [
-        4,
-        124
+        10,
+        200
       ]
     ]
   }

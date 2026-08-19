@@ -9,28 +9,28 @@
         "window": 25,
         "n_calls": 83,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 166,
         "verdict": "RANSOMWARE",
-        "confidence": 99.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 249,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       },
       {
         "window": 100,
         "n_calls": 333,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       }
     ]
@@ -45,28 +45,28 @@
         "window": 25,
         "n_calls": 82,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 165,
         "verdict": "RANSOMWARE",
-        "confidence": 99.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 248,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       },
       {
         "window": 100,
         "n_calls": 331,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       }
     ]
@@ -81,28 +81,28 @@
         "window": 25,
         "n_calls": 30,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 61,
         "verdict": "RANSOMWARE",
-        "confidence": 99.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 92,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       },
       {
         "window": 100,
         "n_calls": 123,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       }
     ]
@@ -117,28 +117,28 @@
         "window": 25,
         "n_calls": 30,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 61,
         "verdict": "RANSOMWARE",
-        "confidence": 99.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 92,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       },
       {
         "window": 100,
         "n_calls": 123,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       }
     ]
@@ -153,28 +153,28 @@
         "window": 25,
         "n_calls": 60,
         "verdict": "RANSOMWARE",
-        "confidence": 90.3,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 120,
         "verdict": "RANSOMWARE",
-        "confidence": 99.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 180,
         "verdict": "RANSOMWARE",
-        "confidence": 99.7,
+        "confidence": 99.9,
         "correct": true
       },
       {
         "window": 100,
         "n_calls": 240,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       }
     ]
@@ -189,21 +189,21 @@
         "window": 25,
         "n_calls": 170,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 340,
         "verdict": "RANSOMWARE",
-        "confidence": 99.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 510,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       },
       {
@@ -225,28 +225,28 @@
         "window": 25,
         "n_calls": 7341,
         "verdict": "RANSOMWARE",
-        "confidence": 99.5,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 14683,
         "verdict": "RANSOMWARE",
-        "confidence": 99.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 22025,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       },
       {
         "window": 100,
         "n_calls": 29367,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       }
     ]
@@ -261,7 +261,7 @@
         "window": 25,
         "n_calls": 182,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 100.0,
         "correct": true
       },
       {
@@ -275,14 +275,14 @@
         "window": 75,
         "n_calls": 547,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       },
       {
         "window": 100,
         "n_calls": 730,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       }
     ]
@@ -297,21 +297,21 @@
         "window": 25,
         "n_calls": 172,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 344,
         "verdict": "RANSOMWARE",
-        "confidence": 99.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 516,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       },
       {
@@ -333,28 +333,28 @@
         "window": 25,
         "n_calls": 1046,
         "verdict": "RANSOMWARE",
-        "confidence": 99.7,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 2093,
         "verdict": "RANSOMWARE",
-        "confidence": 99.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 3139,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       },
       {
         "window": 100,
         "n_calls": 4186,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       }
     ]
@@ -369,29 +369,29 @@
         "window": 25,
         "n_calls": 16,
         "verdict": "RANSOMWARE",
-        "confidence": 52.9,
+        "confidence": 99.8,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 33,
         "verdict": "RANSOMWARE",
-        "confidence": 96.9,
+        "confidence": 57.9,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 50,
-        "verdict": "RANSOMWARE",
-        "confidence": 90.4,
-        "correct": true
+        "verdict": "BENIGN",
+        "confidence": 99.8,
+        "correct": false
       },
       {
         "window": 100,
         "n_calls": 67,
-        "verdict": "RANSOMWARE",
-        "confidence": 97.6,
-        "correct": true
+        "verdict": "BENIGN",
+        "confidence": 99.7,
+        "correct": false
       }
     ]
   },
@@ -405,14 +405,14 @@
         "window": 25,
         "n_calls": 2018,
         "verdict": "RANSOMWARE",
-        "confidence": 76.4,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 4036,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 100.0,
         "correct": true
       },
       {
@@ -426,7 +426,7 @@
         "window": 100,
         "n_calls": 8073,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       }
     ]
@@ -441,28 +441,28 @@
         "window": 25,
         "n_calls": 5649,
         "verdict": "RANSOMWARE",
-        "confidence": 98.2,
+        "confidence": 99.7,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 11299,
         "verdict": "RANSOMWARE",
-        "confidence": 99.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 16948,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       },
       {
         "window": 100,
         "n_calls": 22598,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       }
     ]
@@ -477,28 +477,28 @@
         "window": 25,
         "n_calls": 2786,
         "verdict": "RANSOMWARE",
-        "confidence": 76.7,
+        "confidence": 99.6,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 5572,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 8358,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       },
       {
         "window": 100,
         "n_calls": 11144,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       }
     ]
@@ -513,21 +513,21 @@
         "window": 25,
         "n_calls": 430,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 860,
         "verdict": "RANSOMWARE",
-        "confidence": 99.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 1290,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       },
       {
@@ -549,28 +549,28 @@
         "window": 25,
         "n_calls": 6020,
         "verdict": "RANSOMWARE",
-        "confidence": 96.7,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 12041,
         "verdict": "RANSOMWARE",
-        "confidence": 99.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 18062,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       },
       {
         "window": 100,
         "n_calls": 24083,
         "verdict": "RANSOMWARE",
-        "confidence": 99.6,
+        "confidence": 99.9,
         "correct": true
       }
     ]
@@ -585,21 +585,21 @@
         "window": 25,
         "n_calls": 421,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 842,
         "verdict": "RANSOMWARE",
-        "confidence": 99.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 1263,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       },
       {
@@ -621,21 +621,21 @@
         "window": 25,
         "n_calls": 427,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 855,
         "verdict": "RANSOMWARE",
-        "confidence": 99.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 1282,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       },
       {
@@ -657,28 +657,28 @@
         "window": 25,
         "n_calls": 88,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 177,
         "verdict": "RANSOMWARE",
-        "confidence": 99.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 266,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       },
       {
         "window": 100,
         "n_calls": 355,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 75.8,
         "correct": true
       }
     ]
@@ -693,29 +693,29 @@
         "window": 25,
         "n_calls": 15,
         "verdict": "RANSOMWARE",
-        "confidence": 99.4,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 31,
         "verdict": "RANSOMWARE",
-        "confidence": 96.9,
+        "confidence": 99.9,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 47,
         "verdict": "BENIGN",
-        "confidence": 76.3,
+        "confidence": 86.1,
         "correct": false
       },
       {
         "window": 100,
         "n_calls": 63,
-        "verdict": "BENIGN",
-        "confidence": 61.0,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 99.5,
+        "correct": true
       }
     ]
   },
@@ -729,28 +729,28 @@
         "window": 25,
         "n_calls": 18822,
         "verdict": "BENIGN",
-        "confidence": 98.4,
+        "confidence": 96.9,
         "correct": false
       },
       {
         "window": 50,
         "n_calls": 37644,
-        "verdict": "RANSOMWARE",
-        "confidence": 65.7,
-        "correct": true
+        "verdict": "BENIGN",
+        "confidence": 99.9,
+        "correct": false
       },
       {
         "window": 75,
         "n_calls": 56466,
-        "verdict": "RANSOMWARE",
-        "confidence": 99.3,
-        "correct": true
+        "verdict": "BENIGN",
+        "confidence": 99.7,
+        "correct": false
       },
       {
         "window": 100,
         "n_calls": 75288,
         "verdict": "RANSOMWARE",
-        "confidence": 99.3,
+        "confidence": 81.2,
         "correct": true
       }
     ]
@@ -765,28 +765,28 @@
         "window": 25,
         "n_calls": 80,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 161,
         "verdict": "RANSOMWARE",
-        "confidence": 99.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 242,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       },
       {
         "window": 100,
         "n_calls": 323,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.5,
         "correct": true
       }
     ]
@@ -801,28 +801,28 @@
         "window": 25,
         "n_calls": 81,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 162,
         "verdict": "RANSOMWARE",
-        "confidence": 99.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 243,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 99.9,
         "correct": true
       },
       {
         "window": 100,
         "n_calls": 324,
         "verdict": "RANSOMWARE",
-        "confidence": 99.8,
+        "confidence": 93.2,
         "correct": true
       }
     ]
@@ -837,28 +837,28 @@
         "window": 25,
         "n_calls": 7608,
         "verdict": "RANSOMWARE",
-        "confidence": 99.7,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 15217,
         "verdict": "RANSOMWARE",
-        "confidence": 99.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 22825,
         "verdict": "RANSOMWARE",
-        "confidence": 99.7,
+        "confidence": 99.9,
         "correct": true
       },
       {
         "window": 100,
         "n_calls": 30434,
         "verdict": "RANSOMWARE",
-        "confidence": 99.7,
+        "confidence": 99.9,
         "correct": true
       }
     ]
@@ -873,28 +873,28 @@
         "window": 25,
         "n_calls": 38,
         "verdict": "BENIGN",
-        "confidence": 98.8,
+        "confidence": 99.9,
         "correct": false
       },
       {
         "window": 50,
         "n_calls": 77,
         "verdict": "BENIGN",
-        "confidence": 95.7,
+        "confidence": 99.7,
         "correct": false
       },
       {
         "window": 75,
         "n_calls": 116,
         "verdict": "BENIGN",
-        "confidence": 98.8,
+        "confidence": 97.7,
         "correct": false
       },
       {
         "window": 100,
         "n_calls": 155,
         "verdict": "BENIGN",
-        "confidence": 98.8,
+        "confidence": 91.4,
         "correct": false
       }
     ]
@@ -909,28 +909,28 @@
         "window": 25,
         "n_calls": 15380,
         "verdict": "RANSOMWARE",
-        "confidence": 99.7,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 30761,
         "verdict": "RANSOMWARE",
-        "confidence": 99.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 46141,
         "verdict": "RANSOMWARE",
-        "confidence": 99.7,
+        "confidence": 99.9,
         "correct": true
       },
       {
         "window": 100,
         "n_calls": 61522,
         "verdict": "RANSOMWARE",
-        "confidence": 99.7,
+        "confidence": 99.9,
         "correct": true
       }
     ]
@@ -945,29 +945,29 @@
         "window": 25,
         "n_calls": 12,
         "verdict": "RANSOMWARE",
-        "confidence": 93.4,
+        "confidence": 83.2,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 24,
-        "verdict": "RANSOMWARE",
-        "confidence": 84.2,
-        "correct": true
+        "verdict": "BENIGN",
+        "confidence": 99.8,
+        "correct": false
       },
       {
         "window": 75,
         "n_calls": 36,
         "verdict": "BENIGN",
-        "confidence": 97.6,
+        "confidence": 92.1,
         "correct": false
       },
       {
         "window": 100,
         "n_calls": 49,
-        "verdict": "RANSOMWARE",
-        "confidence": 94.7,
-        "correct": true
+        "verdict": "BENIGN",
+        "confidence": 87.3,
+        "correct": false
       }
     ]
   },
@@ -981,28 +981,28 @@
         "window": 25,
         "n_calls": 7999,
         "verdict": "RANSOMWARE",
-        "confidence": 99.7,
+        "confidence": 99.9,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 15998,
         "verdict": "RANSOMWARE",
-        "confidence": 99.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 75,
         "n_calls": 23997,
         "verdict": "RANSOMWARE",
-        "confidence": 99.6,
+        "confidence": 99.8,
         "correct": true
       },
       {
         "window": 100,
         "n_calls": 31997,
         "verdict": "RANSOMWARE",
-        "confidence": 99.7,
+        "confidence": 99.9,
         "correct": true
       }
     ]
@@ -1017,29 +1017,29 @@
         "window": 25,
         "n_calls": 10,
         "verdict": "RANSOMWARE",
-        "confidence": 76.4,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 21,
         "verdict": "BENIGN",
-        "confidence": 97.2,
+        "confidence": 98.5,
         "correct": false
       },
       {
         "window": 75,
         "n_calls": 32,
-        "verdict": "BENIGN",
-        "confidence": 86.9,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
       },
       {
         "window": 100,
         "n_calls": 43,
-        "verdict": "BENIGN",
-        "confidence": 66.1,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 97.4,
+        "correct": true
       }
     ]
   },
@@ -1053,29 +1053,29 @@
         "window": 25,
         "n_calls": 10,
         "verdict": "RANSOMWARE",
-        "confidence": 79.0,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 20,
         "verdict": "BENIGN",
-        "confidence": 97.6,
+        "confidence": 99.6,
         "correct": false
       },
       {
         "window": 75,
         "n_calls": 30,
-        "verdict": "BENIGN",
-        "confidence": 87.1,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
       },
       {
         "window": 100,
         "n_calls": 41,
-        "verdict": "BENIGN",
-        "confidence": 80.1,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 97.8,
+        "correct": true
       }
     ]
   },
@@ -1089,29 +1089,29 @@
         "window": 25,
         "n_calls": 11,
         "verdict": "RANSOMWARE",
-        "confidence": 88.7,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 22,
         "verdict": "BENIGN",
-        "confidence": 97.7,
+        "confidence": 99.1,
         "correct": false
       },
       {
         "window": 75,
         "n_calls": 33,
-        "verdict": "BENIGN",
-        "confidence": 86.8,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
       },
       {
         "window": 100,
         "n_calls": 45,
-        "verdict": "BENIGN",
-        "confidence": 55.7,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 96.9,
+        "correct": true
       }
     ]
   },
@@ -1125,29 +1125,29 @@
         "window": 25,
         "n_calls": 15,
         "verdict": "RANSOMWARE",
-        "confidence": 99.3,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 30,
-        "verdict": "RANSOMWARE",
-        "confidence": 75.5,
-        "correct": true
+        "verdict": "BENIGN",
+        "confidence": 98.8,
+        "correct": false
       },
       {
         "window": 75,
         "n_calls": 45,
-        "verdict": "BENIGN",
-        "confidence": 96.8,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
       },
       {
         "window": 100,
         "n_calls": 61,
-        "verdict": "BENIGN",
-        "confidence": 90.6,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 94.6,
+        "correct": true
       }
     ]
   },
@@ -1161,29 +1161,29 @@
         "window": 25,
         "n_calls": 15,
         "verdict": "RANSOMWARE",
-        "confidence": 92.9,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 31,
-        "verdict": "RANSOMWARE",
-        "confidence": 90.6,
-        "correct": true
+        "verdict": "BENIGN",
+        "confidence": 95.3,
+        "correct": false
       },
       {
         "window": 75,
         "n_calls": 46,
-        "verdict": "BENIGN",
-        "confidence": 97.2,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
       },
       {
         "window": 100,
         "n_calls": 62,
-        "verdict": "BENIGN",
-        "confidence": 92.4,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 94.2,
+        "correct": true
       }
     ]
   },
@@ -1197,29 +1197,29 @@
         "window": 25,
         "n_calls": 9,
         "verdict": "RANSOMWARE",
-        "confidence": 99.7,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 19,
         "verdict": "BENIGN",
-        "confidence": 95.2,
+        "confidence": 99.8,
         "correct": false
       },
       {
         "window": 75,
         "n_calls": 29,
-        "verdict": "BENIGN",
-        "confidence": 83.0,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
       },
       {
         "window": 100,
         "n_calls": 39,
-        "verdict": "BENIGN",
-        "confidence": 59.1,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 95.2,
+        "correct": true
       }
     ]
   },
@@ -1233,29 +1233,29 @@
         "window": 25,
         "n_calls": 10,
         "verdict": "RANSOMWARE",
-        "confidence": 79.0,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 20,
         "verdict": "BENIGN",
-        "confidence": 97.6,
+        "confidence": 99.6,
         "correct": false
       },
       {
         "window": 75,
         "n_calls": 30,
-        "verdict": "BENIGN",
-        "confidence": 87.1,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
       },
       {
         "window": 100,
         "n_calls": 41,
-        "verdict": "BENIGN",
-        "confidence": 80.1,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 97.8,
+        "correct": true
       }
     ]
   },
@@ -1269,29 +1269,29 @@
         "window": 25,
         "n_calls": 10,
         "verdict": "RANSOMWARE",
-        "confidence": 79.0,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 20,
         "verdict": "BENIGN",
-        "confidence": 97.6,
+        "confidence": 99.6,
         "correct": false
       },
       {
         "window": 75,
         "n_calls": 30,
-        "verdict": "BENIGN",
-        "confidence": 87.1,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
       },
       {
         "window": 100,
         "n_calls": 41,
-        "verdict": "BENIGN",
-        "confidence": 80.1,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 97.8,
+        "correct": true
       }
     ]
   },
@@ -1305,28 +1305,28 @@
         "window": 25,
         "n_calls": 499,
         "verdict": "RANSOMWARE",
-        "confidence": 99.7,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 999,
-        "verdict": "RANSOMWARE",
-        "confidence": 99.5,
-        "correct": true
+        "verdict": "BENIGN",
+        "confidence": 99.3,
+        "correct": false
       },
       {
         "window": 75,
         "n_calls": 1498,
-        "verdict": "BENIGN",
-        "confidence": 98.0,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
       },
       {
         "window": 100,
         "n_calls": 1998,
         "verdict": "RANSOMWARE",
-        "confidence": 99.7,
+        "confidence": 99.9,
         "correct": true
       }
     ]
@@ -1341,28 +1341,28 @@
         "window": 25,
         "n_calls": 499,
         "verdict": "RANSOMWARE",
-        "confidence": 99.7,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 999,
-        "verdict": "RANSOMWARE",
-        "confidence": 99.5,
-        "correct": true
+        "verdict": "BENIGN",
+        "confidence": 99.3,
+        "correct": false
       },
       {
         "window": 75,
         "n_calls": 1498,
-        "verdict": "BENIGN",
-        "confidence": 98.0,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
       },
       {
         "window": 100,
         "n_calls": 1998,
         "verdict": "RANSOMWARE",
-        "confidence": 99.7,
+        "confidence": 99.9,
         "correct": true
       }
     ]
@@ -1377,29 +1377,29 @@
         "window": 25,
         "n_calls": 198,
         "verdict": "RANSOMWARE",
-        "confidence": 99.6,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 396,
-        "verdict": "RANSOMWARE",
-        "confidence": 87.5,
-        "correct": true
+        "verdict": "BENIGN",
+        "confidence": 99.9,
+        "correct": false
       },
       {
         "window": 75,
         "n_calls": 594,
-        "verdict": "BENIGN",
-        "confidence": 96.6,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 99.4,
+        "correct": true
       },
       {
         "window": 100,
         "n_calls": 792,
-        "verdict": "BENIGN",
-        "confidence": 69.7,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 84.1,
+        "correct": true
       }
     ]
   },
@@ -1413,29 +1413,29 @@
         "window": 25,
         "n_calls": 195,
         "verdict": "RANSOMWARE",
-        "confidence": 99.6,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 390,
-        "verdict": "RANSOMWARE",
-        "confidence": 88.1,
-        "correct": true
+        "verdict": "BENIGN",
+        "confidence": 99.9,
+        "correct": false
       },
       {
         "window": 75,
         "n_calls": 585,
-        "verdict": "BENIGN",
-        "confidence": 96.4,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 99.0,
+        "correct": true
       },
       {
         "window": 100,
         "n_calls": 781,
-        "verdict": "BENIGN",
-        "confidence": 62.1,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 84.4,
+        "correct": true
       }
     ]
   },
@@ -1449,28 +1449,28 @@
         "window": 25,
         "n_calls": 674,
         "verdict": "RANSOMWARE",
-        "confidence": 92.7,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 1349,
-        "verdict": "RANSOMWARE",
-        "confidence": 99.3,
-        "correct": true
+        "verdict": "BENIGN",
+        "confidence": 99.9,
+        "correct": false
       },
       {
         "window": 75,
         "n_calls": 2023,
-        "verdict": "BENIGN",
-        "confidence": 84.9,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
       },
       {
         "window": 100,
         "n_calls": 2698,
         "verdict": "RANSOMWARE",
-        "confidence": 83.7,
+        "confidence": 99.9,
         "correct": true
       }
     ]
@@ -1485,29 +1485,29 @@
         "window": 25,
         "n_calls": 725,
         "verdict": "RANSOMWARE",
-        "confidence": 78.0,
+        "confidence": 100.0,
         "correct": true
       },
       {
         "window": 50,
         "n_calls": 1451,
-        "verdict": "RANSOMWARE",
-        "confidence": 97.9,
-        "correct": true
+        "verdict": "BENIGN",
+        "confidence": 99.9,
+        "correct": false
       },
       {
         "window": 75,
         "n_calls": 2176,
-        "verdict": "BENIGN",
-        "confidence": 84.2,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
       },
       {
         "window": 100,
         "n_calls": 2902,
-        "verdict": "BENIGN",
-        "confidence": 91.4,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 99.8,
+        "correct": true
       }
     ]
   },
@@ -1520,29 +1520,29 @@
       {
         "window": 25,
         "n_calls": 3013,
-        "verdict": "BENIGN",
-        "confidence": 89.5,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 100.0,
+        "correct": true
       },
       {
         "window": 50,
         "n_calls": 6026,
-        "verdict": "RANSOMWARE",
-        "confidence": 98.6,
-        "correct": true
+        "verdict": "BENIGN",
+        "confidence": 99.9,
+        "correct": false
       },
       {
         "window": 75,
         "n_calls": 9039,
-        "verdict": "BENIGN",
-        "confidence": 60.6,
-        "correct": false
+        "verdict": "RANSOMWARE",
+        "confidence": 99.9,
+        "correct": true
       },
       {
         "window": 100,
         "n_calls": 12052,
         "verdict": "RANSOMWARE",
-        "confidence": 98.4,
+        "confidence": 99.9,
         "correct": true
       }
     ]

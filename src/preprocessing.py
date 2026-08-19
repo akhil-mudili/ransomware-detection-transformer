@@ -1,22 +1,3 @@
-"""
-preprocessing.py
-================
-Ransomware Detection Project — Data Preprocessing Pipeline
-Author: Akhil Mudili
-Supervisor: Dr. Priyanka Verma
-University of Galway
-
-What this script does:
-1. Reads all usable Cuckoo Sandbox JSON reports (ransomware + benign)
-2. Extracts API call sequences from behavior -> processes -> calls -> api
-3. Filters out unusable samples (fewer than 10 API calls)
-4. Caps sequences at MAX_SEQ_LEN (3000 calls)
-5. Builds a vocabulary of all unique API call names
-6. Encodes API call names to integer IDs
-7. Creates four windowed versions of each sequence (25%, 50%, 75%, 100%)
-8. Saves everything to disk ready for model training
-"""
-
 import os
 import json
 import pickle
@@ -24,50 +5,56 @@ import numpy as np
 from collections import defaultdict
 from sklearn.model_selection import train_test_split
 
-# ============================================================
-# CONFIGURATION — adjust paths if needed
-# ============================================================
-
+# change these paths if the dataset folder moves
 BASE_DIR = r"D:\ACS\Final Project\ransomware dataset"
 EXTRACT_DIR = os.path.join(BASE_DIR, "_extracted_temp")
 OUTPUT_DIR = r"D:\ACS\Final Project\ransomware-detection-transformer\data"
 
-# Ransomware source folders (already extracted)
 RANSOMWARE_FOLDERS = [
     os.path.join(BASE_DIR, "some ransomware cuckoo analysis report"),
     os.path.join(EXTRACT_DIR, "582_ransomware_cuckoo analysis report"),
 ]
 
-# Benign source folders (already extracted)
 BENIGN_FOLDERS = [
     os.path.join(EXTRACT_DIR, "benign sample_cuckoo analysis report"),
     os.path.join(EXTRACT_DIR, "benign_sample_report_cuckoo analysis report_2",
                  "benign_report", "benign_report"),
 ]
 
-# Preprocessing parameters
-MIN_SEQ_LEN = 10        # Minimum API calls to be considered usable
-MAX_SEQ_LEN = 3000      # Cap sequences at this length
-WINDOW_SIZES = [0.25, 0.50, 0.75, 1.00]  # Partial observation windows
+# supplementary samples pulled from the API_traces_malware_detection dataset
+# (VMI hypervisor tracer, not cuckoo), built by extract_api_traces_samples.py.
+# this replaces the earlier malbehavd addition, better sequence lengths and
+# also brings in real ransomware samples across 7 named families, not just
+# benign. benign side gets capped below so this doesn't just swap one
+# imbalance for the opposite one
+EXTRA_SAMPLES_JSON = os.path.join(
+    r"D:\ACS\Final Project\ransomware-detection-transformer\src\models",
+    "api_traces_samples.json"
+)
+EXTRA_BENIGN_CAP = 1300  # roughly matches how much ransomware the new data
+                          # adds, keeps the final ratio close to even instead
+                          # of skewing hard toward benign like last time
 
-# Train/val/test split ratios
+MIN_SEQ_LEN = 10        # drop samples with less api calls than this, basically useless
+MAX_SEQ_LEN = 3000       # cut off anything longer than this
+WINDOW_SIZES = [0.25, 0.50, 0.75, 1.00]
+
+# these two families need to stay completely out of train/val/test, they're
+# used later as "unseen" families for the live detection test, so if they
+# leak into training here the whole known-vs-unseen comparison is broken
+EXCLUDED_FAMILIES = ["wannacry", "sodinokibi"]
+
 TRAIN_RATIO = 0.70
-VAL_RATIO   = 0.15
-TEST_RATIO  = 0.15
-
-# Random seed for reproducibility
+VAL_RATIO = 0.15
+TEST_RATIO = 0.15
 RANDOM_SEED = 42
 
-# Special tokens
 PAD_TOKEN = "<PAD>"
 UNK_TOKEN = "<UNK>"
 
-# ============================================================
-# HELPERS
-# ============================================================
 
 def find_json_files(folder):
-    """Recursively find all JSON files under a folder."""
+    # just walks every subfolder and grabs the json files
     json_files = []
     for root, dirs, files in os.walk(folder):
         for f in files:
@@ -75,33 +62,27 @@ def find_json_files(folder):
                 json_files.append(os.path.join(root, f))
     return json_files
 
+
 def get_family_name(json_path, base_folder):
-    """
-    Infer ransomware family from subfolder name.
-    Handles nested structures by taking the deepest subfolder.
-    """
+    # family name = whatever subfolder the file is sitting in
+    # some folders are nested so just take the last one
     rel = os.path.relpath(json_path, base_folder)
     parts = rel.split(os.sep)
     folders = parts[:-1]
     if len(folders) == 0:
         return "unknown"
-    elif len(folders) == 1:
+    if len(folders) == 1:
         return folders[0].lower()
-    else:
-        return folders[-1].lower()
+    return folders[-1].lower()
+
 
 def extract_api_calls(data):
-    """
-    Extract ordered API call sequence from Cuckoo JSON report.
-    Path: behavior -> processes -> calls -> api
-    Combines calls from all processes in order.
-    """
+    # cuckoo json structure is behavior -> processes -> calls -> api
     api_calls = []
     try:
         processes = data.get("behavior", {}).get("processes", [])
         for proc in processes:
-            calls = proc.get("calls", [])
-            for call in calls:
+            for call in proc.get("calls", []):
                 api = call.get("api", None)
                 if api:
                     api_calls.append(api)
@@ -109,155 +90,218 @@ def extract_api_calls(data):
         pass
     return api_calls
 
+
 def apply_window(sequence, window_fraction, max_len):
-    """
-    Apply a partial observation window to a sequence.
-    Takes the first (window_fraction * len) calls, then pads/truncates to max_len.
-    """
+    # only keep the first X% of the sequence, this is the partial observation part
     window_len = max(1, int(len(sequence) * window_fraction))
     windowed = sequence[:window_len]
-    # Truncate to max_len if needed
     windowed = windowed[:max_len]
     return windowed
 
+
 def pad_sequence(sequence, max_len, pad_id):
-    """Pad sequence to max_len with pad_id."""
+    # pad up to max_len so every sample is the same size for the model
     padded = sequence + [pad_id] * (max_len - len(sequence))
     return padded[:max_len]
 
-# ============================================================
-# STEP 1: LOAD ALL SAMPLES
-# ============================================================
+
+def remove_duplicate_files(all_samples):
+    # found out the hard way that some samples show up in more than one source
+    # folder, probably because the dataset was put together from a couple of
+    # different releases that reused some of the same malware samples.
+    # if I don't catch this here, the same file can end up in both train and
+    # test after the split, which is data leakage, model gets an easy answer
+    # on "unseen" samples it actually already saw during training
+    print("\nchecking for duplicate files across source folders")
+
+    seen_files = set()
+    deduped = []
+    dupes_removed = 0
+
+    for s in all_samples:
+        if s["file"] in seen_files:
+            dupes_removed += 1
+            continue
+        seen_files.add(s["file"])
+        deduped.append(s)
+
+    print(f"  removed {dupes_removed} duplicate files (same filename seen more than once)")
+    print(f"  {len(deduped)} samples left")
+
+    return deduped
+
 
 def load_all_samples():
-    print("\n" + "="*60)
-    print("STEP 1: Loading samples from JSON files")
-    print("="*60)
+    print("\nloading samples from json files")
 
     all_samples = []
 
-    # Load ransomware
-    print("\nLoading ransomware samples...")
+    print("ransomware samples first...")
     for folder in RANSOMWARE_FOLDERS:
         if not os.path.exists(folder):
-            print(f"  WARNING: Folder not found: {folder}")
+            print(f"  couldn't find {folder}, skipping")
             continue
-        json_files = find_json_files(folder)
-        print(f"  Found {len(json_files)} files in: {os.path.basename(folder)}")
 
-        for i, jf in enumerate(json_files):
-            if (i+1) % 100 == 0:
-                print(f"    Processed {i+1}/{len(json_files)}...")
+        json_files = find_json_files(folder)
+        print(f"  {len(json_files)} files in {os.path.basename(folder)}")
+
+        count = 0
+        for jf in json_files:
+            count += 1
+            if count % 100 == 0:
+                print(f"    {count}/{len(json_files)} done")
             try:
-                with open(jf, 'r', encoding='utf-8', errors='ignore') as f:
-                    data = json.load(f)
-                api_calls = extract_api_calls(data)
-                family = get_family_name(jf, folder)
-                all_samples.append({
-                    "api_calls": api_calls,
-                    "label": 1,           # 1 = ransomware
-                    "family": family,
-                    "file": os.path.basename(jf),
-                })
-            except Exception as e:
+                f = open(jf, 'r', encoding='utf-8', errors='ignore')
+                data = json.load(f)
+                f.close()
+            except Exception:
                 continue
 
-    # Load benign
-    print("\nLoading benign samples...")
+            api_calls = extract_api_calls(data)
+            family = get_family_name(jf, folder)
+
+            if family in EXCLUDED_FAMILIES:
+                continue  # keep these out entirely, they're reserved for the unseen-family live detection test
+
+            all_samples.append({
+                "api_calls": api_calls,
+                "label": 1,  # 1 = ransomware
+                "family": family,
+                "file": os.path.basename(jf),
+            })
+
+    print("now benign samples...")
     for folder in BENIGN_FOLDERS:
         if not os.path.exists(folder):
-            print(f"  WARNING: Folder not found: {folder}")
+            print(f"  couldn't find {folder}, skipping")
             continue
-        json_files = find_json_files(folder)
-        print(f"  Found {len(json_files)} files in: {os.path.basename(folder)}")
 
-        for i, jf in enumerate(json_files):
-            if (i+1) % 100 == 0:
-                print(f"    Processed {i+1}/{len(json_files)}...")
+        json_files = find_json_files(folder)
+        print(f"  {len(json_files)} files in {os.path.basename(folder)}")
+
+        count = 0
+        for jf in json_files:
+            count += 1
+            if count % 100 == 0:
+                print(f"    {count}/{len(json_files)} done")
             try:
-                with open(jf, 'r', encoding='utf-8', errors='ignore') as f:
-                    data = json.load(f)
-                api_calls = extract_api_calls(data)
-                all_samples.append({
-                    "api_calls": api_calls,
-                    "label": 0,           # 0 = benign
-                    "family": "benign",
-                    "file": os.path.basename(jf),
-                })
-            except Exception as e:
+                f = open(jf, 'r', encoding='utf-8', errors='ignore')
+                data = json.load(f)
+                f.close()
+            except Exception:
                 continue
 
-    print(f"\nTotal samples loaded: {len(all_samples)}")
-    ransomware_count = sum(1 for s in all_samples if s["label"] == 1)
-    benign_count = sum(1 for s in all_samples if s["label"] == 0)
-    print(f"  Ransomware: {ransomware_count}")
-    print(f"  Benign:     {benign_count}")
+            api_calls = extract_api_calls(data)
+            all_samples.append({
+                "api_calls": api_calls,
+                "label": 0,  # 0 = benign
+                "family": "benign",
+                "file": os.path.basename(jf),
+            })
+
+    print("also pulling in the supplementary samples from API_traces_malware_detection...")
+    if os.path.exists(EXTRA_SAMPLES_JSON):
+        f = open(EXTRA_SAMPLES_JSON, 'r')
+        extra_samples = json.load(f)
+        f.close()
+
+        # wannacry needs to stay out here too, same reason as everywhere
+        # else in this script, it's reserved for the unseen-family test
+        extra_samples = [s for s in extra_samples if s["family"] not in EXCLUDED_FAMILIES]
+
+        extra_ransomware = [s for s in extra_samples if s["label"] == 1]
+        extra_benign = [s for s in extra_samples if s["label"] == 0]
+
+        # cap the benign side so this doesn't just create the opposite
+        # imbalance, random sample with a fixed seed so it's reproducible
+        if len(extra_benign) > EXTRA_BENIGN_CAP:
+            rng = np.random.RandomState(RANDOM_SEED)
+            keep_idx = rng.choice(len(extra_benign), size=EXTRA_BENIGN_CAP, replace=False)
+            extra_benign = [extra_benign[i] for i in keep_idx]
+
+        all_samples.extend(extra_ransomware)
+        all_samples.extend(extra_benign)
+        print(f"  added {len(extra_ransomware)} extra ransomware samples "
+              f"(wannacry excluded)")
+        print(f"  added {len(extra_benign)} extra benign samples "
+              f"(capped at {EXTRA_BENIGN_CAP})")
+    else:
+        print(f"  couldn't find {EXTRA_SAMPLES_JSON}, skipping")
+
+    print(f"total loaded: {len(all_samples)}")
+    print(f"  (wannacry and sodinokibi kept out on purpose, they're the unseen families for later)")
+    ransomware_count = 0
+    benign_count = 0
+    for s in all_samples:
+        if s["label"] == 1:
+            ransomware_count += 1
+        else:
+            benign_count += 1
+    print(f"  ransomware: {ransomware_count}, benign: {benign_count}")
 
     return all_samples
 
-# ============================================================
-# STEP 2: FILTER UNUSABLE SAMPLES
-# ============================================================
 
 def filter_samples(all_samples):
-    print("\n" + "="*60)
-    print("STEP 2: Filtering unusable samples")
-    print("="*60)
+    # drop the ones with too few api calls, they're not really useful for the model
+    print("\nfiltering out short samples")
 
-    usable = [s for s in all_samples if len(s["api_calls"]) >= MIN_SEQ_LEN]
+    usable = []
+    for s in all_samples:
+        if len(s["api_calls"]) >= MIN_SEQ_LEN:
+            usable.append(s)
+
     removed = len(all_samples) - len(usable)
+    print(f"  removed {removed} samples under {MIN_SEQ_LEN} api calls")
+    print(f"  {len(usable)} left")
 
-    print(f"  Removed {removed} samples with fewer than {MIN_SEQ_LEN} API calls")
-    print(f"  Remaining samples: {len(usable)}")
+    ransomware_count = 0
+    benign_count = 0
+    for s in usable:
+        if s["label"] == 1:
+            ransomware_count += 1
+        else:
+            benign_count += 1
+    print(f"  ransomware: {ransomware_count}, benign: {benign_count}")
 
-    ransomware_count = sum(1 for s in usable if s["label"] == 1)
-    benign_count = sum(1 for s in usable if s["label"] == 0)
-    print(f"  Ransomware: {ransomware_count}")
-    print(f"  Benign:     {benign_count}")
-
-    # Print per-family counts
     family_counts = defaultdict(int)
     for s in usable:
         family_counts[s["family"]] += 1
-    print("\n  Samples per family:")
-    for fam, count in sorted(family_counts.items(), key=lambda x: -x[1]):
-        print(f"    {fam:<30} {count}")
+    print("  per family:")
+    for fam in sorted(family_counts, key=lambda x: -family_counts[x]):
+        print(f"    {fam}: {family_counts[fam]}")
 
     return usable
 
-# ============================================================
-# STEP 3: BUILD VOCABULARY
-# ============================================================
 
 def build_vocabulary(samples):
-    print("\n" + "="*60)
-    print("STEP 3: Building API call vocabulary")
-    print("="*60)
+    # collect every unique api call name across the whole dataset
+    print("\nbuilding vocab")
 
-    # Collect all unique API calls
     all_apis = set()
     for s in samples:
-        all_apis.update(s["api_calls"])
+        for api in s["api_calls"]:
+            all_apis.add(api)
 
-    # Build vocab: special tokens first, then sorted API names
     vocab = [PAD_TOKEN, UNK_TOKEN] + sorted(all_apis)
-    api_to_id = {api: idx for idx, api in enumerate(vocab)}
-    id_to_api = {idx: api for api, idx in api_to_id.items()}
 
-    print(f"  Vocabulary size: {len(vocab)} (including PAD and UNK tokens)")
-    print(f"  PAD token ID: {api_to_id[PAD_TOKEN]}")
-    print(f"  UNK token ID: {api_to_id[UNK_TOKEN]}")
+    api_to_id = {}
+    for idx in range(len(vocab)):
+        api_to_id[vocab[idx]] = idx
+
+    id_to_api = {}
+    for api in api_to_id:
+        id_to_api[api_to_id[api]] = api
+
+    print(f"  vocab size: {len(vocab)} (PAD + UNK included)")
+    print(f"  PAD id: {api_to_id[PAD_TOKEN]}, UNK id: {api_to_id[UNK_TOKEN]}")
 
     return vocab, api_to_id, id_to_api
 
-# ============================================================
-# STEP 4: ENCODE AND WINDOW SEQUENCES
-# ============================================================
 
 def encode_and_window(samples, api_to_id):
-    print("\n" + "="*60)
-    print("STEP 4: Encoding sequences and applying windows")
-    print("="*60)
+    # turn the api names into numbers and cut out the 4 windows for each sample
+    print("\nencoding + windowing")
 
     pad_id = api_to_id[PAD_TOKEN]
     unk_id = api_to_id[UNK_TOKEN]
@@ -266,19 +310,20 @@ def encode_and_window(samples, api_to_id):
     seq_lengths = []
 
     for s in samples:
-        # Encode API names to integers
-        full_seq = [api_to_id.get(api, unk_id) for api in s["api_calls"]]
+        full_seq = []
+        for api in s["api_calls"]:
+            if api in api_to_id:
+                full_seq.append(api_to_id[api])
+            else:
+                full_seq.append(unk_id)
 
-        # Cap at MAX_SEQ_LEN
         full_seq = full_seq[:MAX_SEQ_LEN]
         seq_lengths.append(len(full_seq))
 
-        # Create windowed versions
         windows = {}
         for w in WINDOW_SIZES:
             windowed = apply_window(full_seq, w, MAX_SEQ_LEN)
-            padded = pad_sequence(windowed, MAX_SEQ_LEN, pad_id)
-            windows[w] = padded
+            windows[w] = pad_sequence(windowed, MAX_SEQ_LEN, pad_id)
 
         processed.append({
             "label": s["label"],
@@ -288,30 +333,21 @@ def encode_and_window(samples, api_to_id):
             "windows": windows,
         })
 
-    # Report sequence length stats after capping
     seq_lengths = np.array(seq_lengths)
-    print(f"  Sequence lengths after capping at {MAX_SEQ_LEN}:")
-    print(f"    Min:    {seq_lengths.min()}")
-    print(f"    Max:    {seq_lengths.max()}")
-    print(f"    Mean:   {seq_lengths.mean():.1f}")
-    print(f"    Median: {np.median(seq_lengths):.1f}")
+    print(f"  seq lengths after capping at {MAX_SEQ_LEN}:")
+    print(f"    min {seq_lengths.min()}, max {seq_lengths.max()}, mean {seq_lengths.mean():.1f}, median {np.median(seq_lengths):.1f}")
     capped = np.sum(seq_lengths == MAX_SEQ_LEN)
-    print(f"    Samples capped at {MAX_SEQ_LEN}: {capped}")
+    print(f"    {capped} samples got capped")
 
     return processed
 
-# ============================================================
-# STEP 5: TRAIN/VAL/TEST SPLIT
-# ============================================================
 
 def split_dataset(processed):
-    print("\n" + "="*60)
-    print("STEP 5: Splitting into train/val/test sets")
-    print("="*60)
+    # standard 70/15/15, stratified so the ransomware/benign ratio stays the same in each split
+    print("\nsplitting train/val/test")
 
     labels = [s["label"] for s in processed]
 
-    # First split: train vs temp (val + test)
     train_data, temp_data, train_labels, temp_labels = train_test_split(
         processed, labels,
         test_size=(VAL_RATIO + TEST_RATIO),
@@ -319,73 +355,58 @@ def split_dataset(processed):
         random_state=RANDOM_SEED
     )
 
-    # Second split: val vs test
-    val_ratio_adjusted = VAL_RATIO / (VAL_RATIO + TEST_RATIO)
+    val_share = VAL_RATIO / (VAL_RATIO + TEST_RATIO)
     val_data, test_data, val_labels, test_labels = train_test_split(
         temp_data, temp_labels,
-        test_size=(1 - val_ratio_adjusted),
+        test_size=(1 - val_share),
         stratify=temp_labels,
         random_state=RANDOM_SEED
     )
 
-    def split_summary(data, name):
+    def print_split(data, name):
         ransomware = sum(1 for s in data if s["label"] == 1)
         benign = sum(1 for s in data if s["label"] == 0)
-        print(f"  {name}: {len(data)} samples "
-              f"(ransomware: {ransomware}, benign: {benign})")
+        print(f"  {name}: {len(data)} (ransomware {ransomware}, benign {benign})")
 
-    split_summary(train_data, "Train")
-    split_summary(val_data,   "Val  ")
-    split_summary(test_data,  "Test ")
+    print_split(train_data, "train")
+    print_split(val_data, "val")
+    print_split(test_data, "test")
 
     return train_data, val_data, test_data
 
-# ============================================================
-# STEP 6: COMPUTE CLASS WEIGHTS
-# ============================================================
 
 def compute_class_weights(train_data):
-    print("\n" + "="*60)
-    print("STEP 6: Computing class weights for weighted loss")
-    print("="*60)
+    # dataset is imbalanced (more ransomware than benign) so weight the loss instead of undersampling
+    print("\nworking out class weights")
 
     n_total = len(train_data)
     n_ransomware = sum(1 for s in train_data if s["label"] == 1)
     n_benign = sum(1 for s in train_data if s["label"] == 0)
 
-    # Standard sklearn-style class weight: n_total / (n_classes * n_class_i)
     weight_ransomware = n_total / (2 * n_ransomware)
     weight_benign = n_total / (2 * n_benign)
 
     class_weights = {0: weight_benign, 1: weight_ransomware}
 
-    print(f"  Ransomware samples in train: {n_ransomware} -> weight: {weight_ransomware:.4f}")
-    print(f"  Benign samples in train:     {n_benign} -> weight: {weight_benign:.4f}")
+    print(f"  ransomware weight {weight_ransomware:.4f} ({n_ransomware} samples)")
+    print(f"  benign weight {weight_benign:.4f} ({n_benign} samples)")
 
     return class_weights
 
-# ============================================================
-# STEP 7: SAVE EVERYTHING
-# ============================================================
 
-def save_outputs(train_data, val_data, test_data,
-                 vocab, api_to_id, id_to_api, class_weights):
-    print("\n" + "="*60)
-    print("STEP 7: Saving processed data")
-    print("="*60)
+def save_outputs(train_data, val_data, test_data, vocab, api_to_id, id_to_api, class_weights):
+    print("\nsaving everything")
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-    # Save splits
-    for name, data in [("train", train_data),
-                        ("val",   val_data),
-                        ("test",  test_data)]:
+    splits = [("train", train_data), ("val", val_data), ("test", test_data)]
+    for name, data in splits:
         path = os.path.join(OUTPUT_DIR, f"{name}.pkl")
-        with open(path, 'wb') as f:
-            pickle.dump(data, f)
-        print(f"  Saved {name}.pkl ({len(data)} samples)")
+        f = open(path, 'wb')
+        pickle.dump(data, f)
+        f.close()
+        print(f"  {name}.pkl saved, {len(data)} samples")
 
-    # Save vocabulary
     vocab_data = {
         "vocab": vocab,
         "api_to_id": api_to_id,
@@ -394,18 +415,16 @@ def save_outputs(train_data, val_data, test_data,
         "pad_id": api_to_id[PAD_TOKEN],
         "unk_id": api_to_id[UNK_TOKEN],
     }
-    vocab_path = os.path.join(OUTPUT_DIR, "vocabulary.pkl")
-    with open(vocab_path, 'wb') as f:
-        pickle.dump(vocab_data, f)
-    print(f"  Saved vocabulary.pkl (size: {len(vocab)})")
+    f = open(os.path.join(OUTPUT_DIR, "vocabulary.pkl"), 'wb')
+    pickle.dump(vocab_data, f)
+    f.close()
+    print(f"  vocabulary.pkl saved, size {len(vocab)}")
 
-    # Save class weights
-    weights_path = os.path.join(OUTPUT_DIR, "class_weights.pkl")
-    with open(weights_path, 'wb') as f:
-        pickle.dump(class_weights, f)
-    print(f"  Saved class_weights.pkl")
+    f = open(os.path.join(OUTPUT_DIR, "class_weights.pkl"), 'wb')
+    pickle.dump(class_weights, f)
+    f.close()
+    print("  class_weights.pkl saved")
 
-    # Save config/metadata
     config = {
         "min_seq_len": MIN_SEQ_LEN,
         "max_seq_len": MAX_SEQ_LEN,
@@ -420,48 +439,28 @@ def save_outputs(train_data, val_data, test_data,
         "n_test": len(test_data),
         "class_weights": class_weights,
     }
-    config_path = os.path.join(OUTPUT_DIR, "config.pkl")
-    with open(config_path, 'wb') as f:
-        pickle.dump(config, f)
-    print(f"  Saved config.pkl")
+    f = open(os.path.join(OUTPUT_DIR, "config.pkl"), 'wb')
+    pickle.dump(config, f)
+    f.close()
+    print("  config.pkl saved")
 
-    print(f"\n  All outputs saved to: {OUTPUT_DIR}")
+    print(f"\neverything saved to {OUTPUT_DIR}")
 
-# ============================================================
-# MAIN
-# ============================================================
 
 def main():
-    print("=" * 60)
-    print("RANSOMWARE DETECTION — PREPROCESSING PIPELINE")
-    print("=" * 60)
+    print("running preprocessing")
 
-    # Step 1: Load
     all_samples = load_all_samples()
-
-    # Step 2: Filter
+    all_samples = remove_duplicate_files(all_samples)
     usable_samples = filter_samples(all_samples)
-
-    # Step 3: Vocabulary
     vocab, api_to_id, id_to_api = build_vocabulary(usable_samples)
-
-    # Step 4: Encode and window
     processed = encode_and_window(usable_samples, api_to_id)
-
-    # Step 5: Split
     train_data, val_data, test_data = split_dataset(processed)
-
-    # Step 6: Class weights
     class_weights = compute_class_weights(train_data)
+    save_outputs(train_data, val_data, test_data, vocab, api_to_id, id_to_api, class_weights)
 
-    # Step 7: Save
-    save_outputs(train_data, val_data, test_data,
-                 vocab, api_to_id, id_to_api, class_weights)
+    print("\ndone, next step is running cnn_baseline.py")
 
-    print("\n" + "=" * 60)
-    print("PREPROCESSING COMPLETE")
-    print("=" * 60)
-    print("\nNext step: run the CNN baseline model training.")
 
 if __name__ == "__main__":
     main()
